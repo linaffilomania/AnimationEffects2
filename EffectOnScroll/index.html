@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effect on scroll</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+    <section>
+        <span class="curve">
+            <img src="./img/curve.png" alt="Curve">
+        </span>
+    </section>
+    <script type="text/javascript">
+            var scroll = document.querySelector('.curve');
+            window.addEventListener('scroll', function() {
+                var value = 1 + window.scrollY / -500;
+                value = Math.max(value, 0.1);
+                scroll.style.transform = `scaleY(${value})`;
+            });
+    </script>
+</body>
+</html>
