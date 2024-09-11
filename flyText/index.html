@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Text</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aut quo beatae eos alias maiores expedita mollitia voluptatem accusamus nostrum, ut doloribus omnis facere deserunt consectetur placeat explicabo totam exercitationem.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aut quo beatae eos alias maiores expedita mollitia voluptatem accusamus nostrum, ut doloribus omnis facere deserunt consectetur placeat explicabo totam exercitationem.
+            <!-- Repeat text here if needed -->
+        </p>
+    </section>
+    <script src="anime.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const text = document.querySelector('.text');
+            text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+            anime.timeline({
+                targets: '.text span',
+                easing: 'easeInOutExpo',
+                loop: true
+            })
+            .add({
+                rotate: () => anime.random(-360, 360),
+                translateX: () => anime.random(-500, 500),
+                translateY: () => anime.random(-500, 500),
+                duration: 5000,
+                delay: anime.stagger(20)
+            });
+        });
+    </script>
+</body>
+</html>
